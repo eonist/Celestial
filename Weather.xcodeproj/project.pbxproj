@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1095E3820AE176A005DBE07 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1095E3720AE176A005DBE07 /* Card.swift */; };
 		F197246F20AB7BB900637398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F197246E20AB7BB900637398 /* Assets.xcassets */; };
 		F197247220AB7BB900637398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F197247020AB7BB900637398 /* LaunchScreen.storyboard */; };
 		F197249420AB7C1000637398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197247A20AB7C0F00637398 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1095E3720AE176A005DBE07 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F197246420AB7BB700637398 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F197246E20AB7BB900637398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F197247120AB7BB900637398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				F197248F20AB7C0F00637398 /* Page.swift */,
 				F197249020AB7C0F00637398 /* Page+Extension.swift */,
+				F1095E3720AE176A005DBE07 /* Card.swift */,
 			);
 			path = page;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				F197249920AB7C1000637398 /* Extensions.swift in Sources */,
 				F19724A320AB7C1000637398 /* Page+Extension.swift in Sources */,
 				F197249720AB7C1000637398 /* LocManager.swift in Sources */,
+				F1095E3820AE176A005DBE07 /* Card.swift in Sources */,
 				F197249D20AB7C1000637398 /* WeatherModel.swift in Sources */,
 				F197249F20AB7C1000637398 /* Footer.swift in Sources */,
 				F19724A120AB7C1000637398 /* DayView.swift in Sources */,

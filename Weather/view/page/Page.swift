@@ -2,10 +2,8 @@ import UIKit
 
 class Page:UIView{
     lazy var header:UIView = createHeader()
-    lazy var degLabel:UILabel = createDeglabel()
-    lazy var centerContent:UIView = createCenterContent()
-    lazy var kindLabel:UILabel = createkindLabel()
-    lazy var weatherIcon:UIImageView = createWeatherIcon()
+    lazy var card:Card = createCard()
+    
     
     /**
      * Stores the constraints, for easy activating and deactivating
@@ -18,10 +16,8 @@ class Page:UIView{
         super.init(frame: CGRect.zero)
         self.backgroundColor = .white//ViewController.citiesAndColors[idx].color
         _ = header
-        _ = centerContent
-        _ = degLabel
-        _ = kindLabel
-        _ = weatherIcon
+        _ = card
+        
     }
     /**
      * Boilerplate
