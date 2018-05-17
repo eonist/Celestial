@@ -3,8 +3,6 @@ import UIKit
 class Page:UIView{
     lazy var header:UIView = createHeader()
     lazy var card:Card = createCard()
-    
-    
     /**
      * Stores the constraints, for easy activating and deactivating
      */
@@ -17,7 +15,6 @@ class Page:UIView{
         self.backgroundColor = .white//ViewController.citiesAndColors[idx].color
         _ = header
         _ = card
-        
     }
     /**
      * Boilerplate
