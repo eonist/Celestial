@@ -9,18 +9,15 @@ extension VC{
      *
      */
     func animate(to:CGFloat, onComplete:@escaping ()-> Void){
-        let newConstraint = {
-            guard let posConstraint = self.curView.anchor else {fatalError("err posConstraint not available")}
-            NSLayoutConstraint.deactivate([posConstraint.x])
+        let newConstraintClosure = {
+            guard let anchor = self.curView.anchor else {fatalError("err posConstraint not available")}
+            NSLayoutConstraint.deactivate([anchor.x])
             let xConstraint = Constraint.anchor(self.curView, to: self.view, align: .left, alignTo: .left, offset: to)
             NSLayoutConstraint.activate([xConstraint/*,pos.y*/])
             self.curView.anchor?.x = xConstraint
         }
-        
         let anim = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
-            // Set the new constraints
-            newConstraint()
-            // Apply the new constraints on the view
+            newConstraintClosure()// Set the new constraints
             self.view.layoutIfNeeded()
         })
         anim.addCompletion{_ in
@@ -30,54 +27,38 @@ extension VC{
     }
 }
 /**
- * Creational
+ * Create
  */
 extension VC{
     /**
-     *
+     * City and colors
+     */
+    static func createCityAndColors()->[(color:UIColor,city:City)]{
+        var cityAndColor:[(color:UIColor,city:City)] = []
+        City.cities.indices.forEach {  i in
+            cityAndColor.append((color:VC.colors[i],city:City.cities[i]))
+        }
+        return cityAndColor
+        
+    }
+    /**
+     * Current view
      */
     func createCurView(idx:Int) -> Page{
         let view = createView(idx: idx)
         setCenterConstraints(view)
         return view
     }
+    
     /**
-     * center
-     */
-    func setCenterConstraints(_ view:Page) {
-        view.translatesAutoresizingMaskIntoConstraints = false// (this enables you to set your own constraints)
-        let screenSize:CGSize = {
-            let size = UIScreen.main.bounds.size
-            return CGSize(width:size.width, height:size.height - Footer.footerHeight)
-        }()
-        let size = Constraint.size(view, size: screenSize)
-        let pos = Constraint.anchor(view, to: self.view, align: .topLeft, alignTo: .topLeft)
-        let constraints = [pos.x,pos.y,size.w,size.h]
-        view.size = size
-        view.anchor = pos
-        NSLayoutConstraint.activate(constraints)
-    }
-    /**
-     *
+     * Left view
      */
     func createLeftView(idx:Int) -> Page{
         let view = createView(idx: idx)
         setLeftConstraints(view)
         return view
     }
-    func setLeftConstraints(_ view:Page) {
-        view.translatesAutoresizingMaskIntoConstraints = false// (this enables you to set your own constraints)
-        let screenSize:CGSize = {
-            let size = UIScreen.main.bounds.size
-            return CGSize(width:size.width, height:size.height - Footer.footerHeight)
-        }()
-        let size = Constraint.size(view, size: screenSize)
-        let pos = Constraint.anchor(view, to: self.curView, align: .topRight, alignTo: .topLeft)
-        let constraints = [pos.x,pos.y,size.w,size.h]
-        view.size = size
-        view.anchor = pos
-        NSLayoutConstraint.activate(constraints)
-    }
+    
     /**
      *
      */
@@ -85,22 +66,6 @@ extension VC{
         let view = createView(idx: idx)
         setRightConstraints(view)
         return view
-    }
-    /**
-     *
-     */
-    func setRightConstraints(_ view:Page) {
-        view.translatesAutoresizingMaskIntoConstraints = false// (this enables you to set your own constraints)
-        let screenSize:CGSize = {
-            let size = UIScreen.main.bounds.size
-            return CGSize(width:size.width, height:size.height - Footer.footerHeight)
-        }()
-        let size = Constraint.size(view, size: screenSize)
-        let pos = Constraint.anchor(view, to: curView, align: .topLeft, alignTo: .topRight)
-        let constraints = [pos.x,pos.y,size.w,size.h]
-        view.size = size
-        view.anchor = pos
-        NSLayoutConstraint.activate(constraints)
     }
     /**
      *
@@ -131,5 +96,58 @@ extension VC{
         }()
         footer.updateWeather(idx: self.curIdx)//init
         return footer
+    }
+}
+/**
+ * Constraints
+ */
+extension VC{
+    /**
+     * center
+     */
+    func setCenterConstraints(_ view:Page) {
+        view.translatesAutoresizingMaskIntoConstraints = false// (this enables you to set your own constraints)
+        let screenSize:CGSize = {
+            let size = UIScreen.main.bounds.size
+            return CGSize(width:size.width, height:size.height - Footer.footerHeight)
+        }()
+        let size = Constraint.size(view, size: screenSize)
+        let pos = Constraint.anchor(view, to: self.view, align: .topLeft, alignTo: .topLeft)
+        let constraints = [pos.x,pos.y,size.w,size.h]
+        view.size = size
+        view.anchor = pos
+        NSLayoutConstraint.activate(constraints)
+    }
+    /**
+     * NOTE: called from tapRelease and createLeftView
+     */
+    func setLeftConstraints(_ view:Page) {
+        view.translatesAutoresizingMaskIntoConstraints = false// (this enables you to set your own constraints)
+        let screenSize:CGSize = {
+            let size = UIScreen.main.bounds.size
+            return CGSize(width:size.width, height:size.height - Footer.footerHeight)
+        }()
+        let size = Constraint.size(view, size: screenSize)
+        let pos = Constraint.anchor(view, to: self.curView, align: .topRight, alignTo: .topLeft)
+        let constraints = [pos.x,pos.y,size.w,size.h]
+        view.size = size
+        view.anchor = pos
+        NSLayoutConstraint.activate(constraints)
+    }
+    /**
+     *
+     */
+    func setRightConstraints(_ view:Page) {
+        view.translatesAutoresizingMaskIntoConstraints = false// (this enables you to set your own constraints)
+        let screenSize:CGSize = {
+            let size = UIScreen.main.bounds.size
+            return CGSize(width:size.width, height:size.height - Footer.footerHeight)
+        }()
+        let size = Constraint.size(view, size: screenSize)
+        let pos = Constraint.anchor(view, to: curView, align: .topLeft, alignTo: .topRight)
+        let constraints = [pos.x,pos.y,size.w,size.h]
+        view.size = size
+        view.anchor = pos
+        NSLayoutConstraint.activate(constraints)
     }
 }

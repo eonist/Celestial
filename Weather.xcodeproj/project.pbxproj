@@ -144,8 +144,8 @@
 			children = (
 				F197248A20AB7C0F00637398 /* footer */,
 				F197248E20AB7C0F00637398 /* page */,
-				F197249120AB7C0F00637398 /* VC+Extension.swift */,
 				F197249220AB7C0F00637398 /* VC.swift */,
+				F197249120AB7C0F00637398 /* VC+Extension.swift */,
 				F197249320AB7C0F00637398 /* VC+Extension+Handler.swift */,
 			);
 			path = view;
