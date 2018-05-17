@@ -9,18 +9,19 @@ class Consts{
 
 struct City {
     static var cities:[City] = {
-        let oslo:City = .init(cityName: "Oslo", coordinate: (lat:59.911491, long:10.757933))//is , and the longitude is .
-        let sanFrancisco:City = .init(cityName: "San Francisco", coordinate: (lat:37.7749, long:-122.4194))
-        //San fran, Oslo, Milano, New york, London, Los angels, Paris,
-        let stockholm:City = .init(cityName: "Stockholm", coordinate: (lat:59.3293, long:18.063240))//long: , lat
-        let paris:City = .init(cityName: "Paris", coordinate: (lat:2.349014, long:48.8566))//long: , lat//Longitude‎: ‎2.349014,lat: 48.8566
-        let london:City = .init(cityName: "London", coordinate: (lat:51.5074, long:-0.118092))//Longitude‎: ‎, lat
-        let barcelona:City = .init(cityName: "Barcelona", coordinate: (lat:41.390205, long:2.154007))//long ,lat: ‎
-        return [oslo,london,sanFrancisco,barcelona,stockholm,paris]
+        return [Cities.oslo,Cities.london,Cities.sanFrancisco,Cities.barcelona,Cities.stockholm,Cities.paris]
     }()
     let cityName:String
     let coordinate:(long:Double,lat:Double)
 }
-
-
-
+extension City{
+    enum Cities{
+        static let oslo:City = .init(cityName: "Oslo", coordinate: (lat:59.911491, long:10.757933))//is , and the longitude is .
+        static let sanFrancisco:City = .init(cityName: "San Francisco", coordinate: (lat:37.7749, long:-122.4194))
+        //San fran, Oslo, Milano, New york, London, Los angels, Paris,
+        static let stockholm:City = .init(cityName: "Stockholm", coordinate: (lat:59.3293, long:18.063240))//long: , lat
+        static let paris:City = .init(cityName: "Paris", coordinate: (lat:2.349014, long:48.8566))//long: , lat//Longitude‎: ‎2.349014,lat: 48.8566
+        static let london:City = .init(cityName: "London", coordinate: (lat:51.5074, long:-0.118092))//Longitude‎: ‎, lat
+        static let barcelona:City = .init(cityName: "Barcelona", coordinate: (lat:41.390205, long:2.154007))//long ,lat: ‎
+    }
+}

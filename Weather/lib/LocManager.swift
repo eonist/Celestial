@@ -50,7 +50,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var currentLocation = CLLocation()
     var locationManager = CLLocationManager()
     // Region
-    var regionRadius = 500.0 // the radius of the region the user has to move out of to trigger a forecast update.
+    static var regionRadius = 500.0 // the radius of the region the user has to move out of to trigger a forecast update.
     var region = CLCircularRegion()
     //singleton
     static let sharedInstance = LocationManager()
@@ -64,7 +64,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }
-    
     func requestAuthorization() {
         Swift.print("🎉requestAuthorization-begin")
         locationManager.requestAlwaysAuthorization()
@@ -84,32 +83,26 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func startUpdatingLocation() {
         locationManager.startUpdatingLocation()
     }
-    
     func startMonitoringForRegion() {
         setupRegion()
         locationManager.startMonitoring(for: region)
     }
-    
     func setupRegion() {
         // Create region with center at device location
         if let currentLocation = locationManager.location?.coordinate {
-            region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: currentLocation.latitude, longitude:  currentLocation.longitude), radius: regionRadius, identifier: "UpdateForecastRegion")
+            region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: currentLocation.latitude, longitude:  currentLocation.longitude), radius: LocationManager.regionRadius, identifier: "UpdateForecastRegion")
         } else {
-            region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: loc.lat, longitude:  loc.long), radius: regionRadius, identifier: "UpdateForecastRegion")
+            region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: loc.lat, longitude:  loc.long), radius: LocationManager.regionRadius, identifier: "UpdateForecastRegion")
         }
         region.notifyOnEntry = false
         region.notifyOnExit = true
-        
-        
     }
     
     //Event methods
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Swift.print("didUpdateLocations: \(locations.last!)")
         // Update current location
          currentLocation = locations.last!
-       
     }
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         Swift.print("didStartMonitoringFor 👈")
@@ -131,7 +124,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         startMonitoringForRegion()
         onExitRegion()//call the callback method
     }
-    
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         print("Location: Monitoring failed for region with identifier: \(region!.identifier)")
     }
