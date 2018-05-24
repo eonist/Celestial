@@ -6,7 +6,7 @@ extension VC{
      */
     @objc func handleTap(sender : UITapGestureRecognizer) {
         Swift.print("handleTap")
-        if sender.state == .ended || sender.state == .cancelled || sender.state == .failed  {
+        if [.ended,.cancelled,.failed].contains(sender.state)  {
             onTapRelease()
         }//tap release
     }
@@ -25,7 +25,7 @@ extension VC{
         self.view.layoutIfNeeded()
         
         recognizer.setTranslation(CGPoint.zero, in: self.view)//reset recognizer
-        if recognizer.state == .ended || recognizer.state == .cancelled || recognizer.state == .failed  {
+        if [.ended,.cancelled,.failed].contains(recognizer.state)   {
             onTapRelease()
         }//tap release
     }
