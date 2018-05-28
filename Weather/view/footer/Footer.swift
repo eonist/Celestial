@@ -13,9 +13,9 @@ class Footer :UIStackView{
         bg.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        bg.backgroundColor = .red
         self.addSubview(bg)
-        self.axis  = UILayoutConstraintAxis.horizontal
-        self.distribution  = UIStackViewDistribution.equalSpacing
-        self.alignment = UIStackViewAlignment.center
+        self.axis  = .horizontal
+        self.distribution  = .equalSpacing
+        self.alignment = .center
         self.spacing = 0
         _ = dayViews
     }
@@ -24,7 +24,7 @@ class Footer :UIStackView{
     }
 }
 /**
- * Create
+ * Update
  */
 extension Footer{
     /**
@@ -46,6 +46,11 @@ extension Footer{
             dayViews[idx].setWeather(weatherList[idx])
         }
     }
+}
+/**
+ * Create
+ */
+extension Footer{
     /**
      * Creates Day views
      */
@@ -67,13 +72,11 @@ extension Footer{
      *
      */
     static func createDayNames() -> [String] {
-    
         let dayNames:[String] = (0..<5).indices.compactMap {
             let day = Date.offsetByDays(Date(), $0)
             return day.semiShortDayName
         }
         return dayNames
-        
     }
 }
 
