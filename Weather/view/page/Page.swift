@@ -6,8 +6,8 @@ class Page:UIView{
     /**
      * Stores the constraints, for easy activating and deactivating
      */
-    var size:(w:NSLayoutConstraint,h:NSLayoutConstraint)?
-    var anchor:(x:NSLayoutConstraint,y:NSLayoutConstraint)?
+    var size:SizeConstraint?
+    var anchor:AnchorConstraint?
     var idx:Int
     init(idx:Int) {
         self.idx = idx

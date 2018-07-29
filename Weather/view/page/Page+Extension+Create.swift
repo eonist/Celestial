@@ -1,6 +1,4 @@
-
 import UIKit
-
 /**
  * Create
  */
@@ -14,8 +12,7 @@ extension Page{
         addSubview(view)
         view.activateConstraint{ view in//constraints
             let anchor = Constraint.anchor(view, to: self, align: .topCenter, alignTo: .topCenter)
-            let screenSize = UIScreen.main.bounds.size
-            let size = Constraint.size(view, size: CGSize(width:screenSize.width,height:60))
+            let size = Constraint.size(view, size: CGSize(width:UIScreen.main.bounds.width,height:60))
             return [anchor.x,anchor.y,size.w,size.h]
         }
         _ = createHeaderTitle(header:view)
@@ -48,7 +45,7 @@ extension Page{
         let view = Card()
         //view.backgroundColor = .white
         addSubview(view)
-        view.activateConstraint{ view in//constraints
+        view.activateConstraint{ view in/*constraints*/
             let anchor = Constraint.anchor(view, to: self, align: .centerCenter, alignTo: .centerCenter)
             let size = Constraint.size(view, size: CGSize(width:200,height:200))
             return [anchor.x,anchor.y,size.w,size.h]

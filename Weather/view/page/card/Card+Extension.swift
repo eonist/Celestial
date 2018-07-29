@@ -9,16 +9,14 @@ extension Card{
         degLabel.text = "5°C"
         degLabel.font = UIFont.boldSystemFont(ofSize: 60.0)
         degLabel.textAlignment = .center
-        //        degLabel.backgroundColor = .blue
+        //degLabel.backgroundColor = .blue
         degLabel.textColor = .black//UIColor(hex:"EBCF4B")
         self.addSubview(degLabel)
-        _ = {
-            degLabel.translatesAutoresizingMaskIntoConstraints = false
-            let anchor = Constraint.anchor(degLabel, to: self, align:.bottomCenter, alignTo: .bottomCenter)
-            let height = Constraint.height(degLabel, to: self)
-            let width = Constraint.width(degLabel, to: self)
-            NSLayoutConstraint.activate([anchor.x,anchor.y,width,height])
-        }()
+        degLabel.activateConstraint{ view in
+            let anchor = Constraint.anchor(view, to: self, align:.bottomCenter, alignTo: .bottomCenter)
+            let size = Constraint.size(view, to: self)
+            return [anchor.x,anchor.y,size.w,size.h]
+        }
         return degLabel
     }
     /**
@@ -30,16 +28,15 @@ extension Card{
         kindLabel.text = "Clear skies"
         kindLabel.font = kindLabel.font.withSize(20)
         kindLabel.textAlignment = .center
-        //        kindLabel.backgroundColor = .gray
+        //kindLabel.backgroundColor = .gray
         kindLabel.textColor = .black//UIColor(hex:"EBCF4B")
         self.addSubview(kindLabel)
-        _ = {
-            kindLabel.translatesAutoresizingMaskIntoConstraints = false
-            let anchor = Constraint.anchor(kindLabel, to: self.degLabel, align:.topCenter, alignTo: .bottomCenter)
-            let height = Constraint.height(kindLabel, height: 40)
-            let width = Constraint.width(kindLabel, to: self)
-            NSLayoutConstraint.activate([anchor.x,anchor.y,width,height])
-        }()
+        kindLabel.activateConstraint{ view in
+            let anchor = Constraint.anchor(view, to: self.degLabel, align:.topCenter, alignTo: .bottomCenter)
+            let height = Constraint.height(view, height: 40)
+            let width = Constraint.width(view, to: self)
+            return [anchor.x,anchor.y,width,height]
+        }
         return kindLabel
     }
     /**
@@ -49,13 +46,12 @@ extension Card{
         let view = UIImageView()
         //        view.backgroundCol    or = .purple
         self.addSubview(view)
-        _ = {
-            view.translatesAutoresizingMaskIntoConstraints = false
+        view.activateConstraint{ view in
             let anchor = Constraint.anchor(view, to: self.degLabel, align:.bottomCenter, alignTo: .topCenter)
             let height = Constraint.height(view, height: 38)
             let width = Constraint.width(view, width:38)
-            NSLayoutConstraint.activate([anchor.x,anchor.y,width,height])
-        }()
+            return [anchor.x,anchor.y,width,height]
+        }
         return view
     }
 }

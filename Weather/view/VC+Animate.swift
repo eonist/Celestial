@@ -1,4 +1,3 @@
-
 import UIKit
 
 /**
@@ -11,15 +10,15 @@ extension VC{
      * TODO: ⚠️️ Upgrade to more modern Constraint class, and use the built in animation code
      */
     func animate(to:CGFloat, onComplete:@escaping ()-> Void){
-        let newConstraintClosure = {
-            guard let anchor = self.curView.anchor else {fatalError("err posConstraint not available")}
-            NSLayoutConstraint.deactivate([anchor.x])
+        let newConstraintClosure = {/*Animate to this*/
+            guard let anchor = self.curView.anchor else {fatalError("err anchor not available")}
+            NSLayoutConstraint.deactivate([anchor.x])/*Deactivate the current active constraint*/
             let xConstraint = Constraint.anchor(self.curView, to: self.view, align: .left, alignTo: .left, offset: to)
             NSLayoutConstraint.activate([xConstraint/*,pos.y*/])
             self.curView.anchor?.x = xConstraint
         }
         let anim = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
-            newConstraintClosure()// Set the new constraints
+            newConstraintClosure()/*Set the new constraints*/
             self.view.layoutIfNeeded()
         })
         anim.addCompletion{_ in
