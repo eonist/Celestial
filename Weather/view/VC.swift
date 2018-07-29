@@ -7,6 +7,7 @@ class VC: UIViewController {
     static let colors:[UIColor] = [.green,.orange,.blue,.red,.purple,.gray,.yellow]
     static let citiesAndColors:[(color:UIColor,city:City)] = VC.createCityAndColors()
     var curIdx:Int = 0/*current page index*/
+    /*Create views*/
     lazy var curView:Page = self.createCurView(idx:curIdx)
     lazy var leftView:Page = self.createLeftView(idx: IntParser.normalize(-1, VC.citiesAndColors.count))
     lazy var rightView:Page = self.createRightView(idx: curIdx+1)
@@ -21,13 +22,7 @@ class VC: UIViewController {
         _ = rightView
         _ = leftView
         _ = footer
-        _ = {//add gesture recognizers
-            let tap = UITapGestureRecognizer(target: self, action:  #selector(handleTap))
-            self.view.addGestureRecognizer(tap)
-            
-            let pan = UIPanGestureRecognizer(target:self, action:#selector(handlePan))
-            self.view.addGestureRecognizer(pan)
-        }()
+        addGestures()/*add gesture recognizers*/
     }
     override var prefersStatusBarHidden: Bool {return true}//hides statusbar
     /**

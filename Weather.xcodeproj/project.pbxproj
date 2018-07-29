@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F1095E3820AE176A005DBE07 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1095E3720AE176A005DBE07 /* Card.swift */; };
+		F10D5793210C78B5000EEA2B /* VC+Extension+Gesture+Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5792210C78B5000EEA2B /* VC+Extension+Gesture+Handler.swift */; };
+		F10D5795210C790F000EEA2B /* VC+Extension+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5794210C790F000EEA2B /* VC+Extension+Create.swift */; };
+		F10D5797210C7BA7000EEA2B /* VC+Extension+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5796210C7BA7000EEA2B /* VC+Extension+Constraint.swift */; };
+		F10D5799210C9CA5000EEA2B /* Page+Extension+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5798210C9CA5000EEA2B /* Page+Extension+Create.swift */; };
+		F10D579B210C9CE3000EEA2B /* Card+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D579A210C9CE3000EEA2B /* Card+Extension.swift */; };
 		F197246F20AB7BB900637398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F197246E20AB7BB900637398 /* Assets.xcassets */; };
 		F197247220AB7BB900637398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F197247020AB7BB900637398 /* LaunchScreen.storyboard */; };
 		F197249420AB7C1000637398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197247A20AB7C0F00637398 /* AppDelegate.swift */; };
@@ -28,11 +33,15 @@
 		F19724A320AB7C1000637398 /* Page+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249020AB7C0F00637398 /* Page+Extension.swift */; };
 		F19724A420AB7C1000637398 /* VC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249120AB7C0F00637398 /* VC+Extension.swift */; };
 		F19724A520AB7C1000637398 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249220AB7C0F00637398 /* VC.swift */; };
-		F19724A620AB7C1000637398 /* VC+Extension+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249320AB7C0F00637398 /* VC+Extension+Gesture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F1095E3720AE176A005DBE07 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		F10D5792210C78B5000EEA2B /* VC+Extension+Gesture+Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extension+Gesture+Handler.swift"; sourceTree = "<group>"; };
+		F10D5794210C790F000EEA2B /* VC+Extension+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extension+Create.swift"; sourceTree = "<group>"; };
+		F10D5796210C7BA7000EEA2B /* VC+Extension+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extension+Constraint.swift"; sourceTree = "<group>"; };
+		F10D5798210C9CA5000EEA2B /* Page+Extension+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+Extension+Create.swift"; sourceTree = "<group>"; };
+		F10D579A210C9CE3000EEA2B /* Card+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Extension.swift"; sourceTree = "<group>"; };
 		F197246420AB7BB700637398 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F197246E20AB7BB900637398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F197247120AB7BB900637398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +64,6 @@
 		F197249020AB7C0F00637398 /* Page+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page+Extension.swift"; sourceTree = "<group>"; };
 		F197249120AB7C0F00637398 /* VC+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VC+Extension.swift"; sourceTree = "<group>"; };
 		F197249220AB7C0F00637398 /* VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
-		F197249320AB7C0F00637398 /* VC+Extension+Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VC+Extension+Gesture.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +154,9 @@
 				F197248E20AB7C0F00637398 /* page */,
 				F197249220AB7C0F00637398 /* VC.swift */,
 				F197249120AB7C0F00637398 /* VC+Extension.swift */,
-				F197249320AB7C0F00637398 /* VC+Extension+Gesture.swift */,
+				F10D5794210C790F000EEA2B /* VC+Extension+Create.swift */,
+				F10D5796210C7BA7000EEA2B /* VC+Extension+Constraint.swift */,
+				F10D5792210C78B5000EEA2B /* VC+Extension+Gesture+Handler.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -166,7 +176,9 @@
 			children = (
 				F197248F20AB7C0F00637398 /* Page.swift */,
 				F197249020AB7C0F00637398 /* Page+Extension.swift */,
+				F10D5798210C9CA5000EEA2B /* Page+Extension+Create.swift */,
 				F1095E3720AE176A005DBE07 /* Card.swift */,
+				F10D579A210C9CE3000EEA2B /* Card+Extension.swift */,
 			);
 			path = page;
 			sourceTree = "<group>";
@@ -255,11 +267,15 @@
 				F19724A120AB7C1000637398 /* DayView.swift in Sources */,
 				F197249420AB7C1000637398 /* AppDelegate.swift in Sources */,
 				F197249520AB7C1000637398 /* Constants.swift in Sources */,
+				F10D5797210C7BA7000EEA2B /* VC+Extension+Constraint.swift in Sources */,
 				F197249A20AB7C1000637398 /* SimpleTimer.swift in Sources */,
+				F10D5795210C790F000EEA2B /* VC+Extension+Create.swift in Sources */,
 				F19724A020AB7C1000637398 /* DayView+Extension.swift in Sources */,
+				F10D579B210C9CE3000EEA2B /* Card+Extension.swift in Sources */,
 				F19724A420AB7C1000637398 /* VC+Extension.swift in Sources */,
+				F10D5799210C9CA5000EEA2B /* Page+Extension+Create.swift in Sources */,
 				F197249620AB7C1000637398 /* WeatherXMLParser.swift in Sources */,
-				F19724A620AB7C1000637398 /* VC+Extension+Gesture.swift in Sources */,
+				F10D5793210C78B5000EEA2B /* VC+Extension+Gesture+Handler.swift in Sources */,
 				F197249B20AB7C1000637398 /* MiscUtils.swift in Sources */,
 				F19724A220AB7C1000637398 /* Page.swift in Sources */,
 			);

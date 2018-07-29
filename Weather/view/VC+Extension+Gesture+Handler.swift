@@ -2,32 +2,24 @@ import UIKit
 
 extension VC{
     /**
+     * Adds gesture recognizers
+     */
+    func addGestures(){
+        /*Tap*/
+        let tap = UITapGestureRecognizer(target: self, action:  #selector(handleTap))
+        self.view.addGestureRecognizer(tap)
+        /*Pan*/
+        let pan = UIPanGestureRecognizer(target:self, action:#selector(handlePan))
+        self.view.addGestureRecognizer(pan)
+    }
+    /**
      * Normal tap
      */
     @objc func handleTap(sender : UITapGestureRecognizer) {
         Swift.print("handleTap")
-        if [.ended,.cancelled,.failed].contains(sender.state)  {
+        if [.ended,.cancelled,.failed].contains(sender.state) {/*on tap release*/
             onTapRelease()
-        }//tap release
-    }
-    /**
-     * When user drags a tap across the screen
-     */
-    @objc func handlePan(recognizer:UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: self.view)
-        Swift.print("translation:  \(translation)")
-        guard let posConstraint = curView.anchor else {fatalError("err posConstraint not available")}
-        let x = posConstraint.x.constant + translation.x
-        NSLayoutConstraint.deactivate([posConstraint.x])
-        let xConstraint = Constraint.anchor(curView, to: self.view, align: .left, alignTo: .left, offset: x)
-        NSLayoutConstraint.activate([xConstraint/*,pos.y*/])
-        curView.anchor?.x = xConstraint
-        self.view.layoutIfNeeded()
-        
-        recognizer.setTranslation(CGPoint.zero, in: self.view)//reset recognizer
-        if [.ended,.cancelled,.failed].contains(recognizer.state)   {
-            onTapRelease()
-        }//tap release
+        }
     }
     /**
      * When user release tap (regular tap, or drag tap)
@@ -47,11 +39,32 @@ extension VC{
         }
         self.view.layoutIfNeeded()
     }
+    /**
+     * When user drags a tap across the screen
+     */
+    @objc func handlePan(recognizer:UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: self.view)
+        Swift.print("translation:  \(translation)")
+        guard let posConstraint = curView.anchor else {fatalError("err posConstraint not available")}
+        let x = posConstraint.x.constant + translation.x
+        NSLayoutConstraint.deactivate([posConstraint.x])
+        let xConstraint = Constraint.anchor(curView, to: self.view, align: .left, alignTo: .left, offset: x)
+        NSLayoutConstraint.activate([xConstraint/*,pos.y*/])
+        curView.anchor?.x = xConstraint
+        self.view.layoutIfNeeded()
+        
+        recognizer.setTranslation(CGPoint.zero, in: self.view)/*reset recognizer*/
+        if [.ended,.cancelled,.failed].contains(recognizer.state)   {
+            onTapRelease()/*tap release*/
+        }
+    }
 }
-
+/**
+ * Cases
+ */
 extension VC{
     /**
-     * outsideLeftBoundry
+     * Handle paning beyond the left boundry
      */
     fileprivate func outsideLeftBoundry(){
         Swift.print("outside left boundry")
@@ -81,7 +94,7 @@ extension VC{
         }
     }
     /**
-     * outsideRightBoundry
+     * Handle paning beyond the right boundry
      */
     fileprivate func outsideRightBoundry(){
         Swift.print("outside right boundry")
@@ -111,7 +124,7 @@ extension VC{
         }
     }
     /**
-     * withinBoundry
+     * Handle paning within boundry
      */
     fileprivate func withinBoundry(){
         Swift.print("within boundries")
