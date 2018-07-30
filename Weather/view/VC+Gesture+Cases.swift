@@ -7,7 +7,7 @@ extension VC{
      * Handle paning beyond the left boundry
      * NOTE: basically swipe right to left, where the left side page disapears
      */
-    fileprivate func beyondLeft(){
+    func beyondLeft(){
         Swift.print("outside left boundry")
         let screenRect = UIScreen.main.bounds
         let to:CGFloat = screenRect.origin.x - screenRect.width
@@ -38,7 +38,7 @@ extension VC{
      * Handle paning beyond the right boundry
      * Basically swipe from left to right
      */
-    fileprivate func beyondRight(){
+    func beyondRight(){
         Swift.print("outside right boundry")
         let screenRect = UIScreen.main.bounds
         let to:CGFloat = screenRect.origin.x + screenRect.width
@@ -69,7 +69,7 @@ extension VC{
      * Handle paning within boundry
      * NOTE: basically when the gesture is dropped within left and right boundry
      */
-    fileprivate func withinBoundry(){
+    func withinBoundry(){
         Swift.print("within boundries")
         let screenRect = UIScreen.main.bounds
         let to:CGFloat = screenRect.origin.x
