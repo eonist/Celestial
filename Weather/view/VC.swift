@@ -24,7 +24,7 @@ class VC: UIViewController {
         _ = footer
         addGestures()/*add gesture recognizers*/
     }
-    override var prefersStatusBarHidden:Bool {return true}//hides statusbar
+    override var prefersStatusBarHidden:Bool {return true}/*hides statusbar*/   
     /**
      * Boilerplate
      */

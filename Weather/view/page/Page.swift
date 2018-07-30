@@ -1,6 +1,6 @@
 import UIKit
 
-class Page:UIView{
+class Page:UIView,ConstraintKind{
     lazy var header:UIView = createHeader()
     lazy var card:Card = createCard()
     /**
