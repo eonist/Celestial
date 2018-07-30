@@ -2,9 +2,6 @@ import UIKit
 /**
  * Constraints
  */
-
-
-
 extension VC{
     /**
      * Set center constraints
