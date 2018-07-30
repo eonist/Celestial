@@ -7,9 +7,8 @@ extension VC{
     /**
      * PARAM: to: the amount to offset in the X dir
      * PARAM: onComplete: called when the animation completes
-     * TODO: ⚠️️ Upgrade to more modern Constraint class, and use the built in animation code
      */
-    func animate(to:CGFloat, onComplete:@escaping ()-> Void){
+    func animate(to:CGFloat, onComplete:@escaping () -> Void){
         let newConstraintClosure = {/*Animate to this*/
             guard let anchor = self.curView.anchor else {fatalError("err anchor not available")}
             NSLayoutConstraint.deactivate([anchor.x])/*Deactivate the current active constraint*/
@@ -17,14 +16,10 @@ extension VC{
             NSLayoutConstraint.activate([xConstraint/*,pos.y*/])
             self.curView.anchor?.x = xConstraint
         }
-        let anim = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
+        UIView.animate({/*animate*/
             newConstraintClosure()/*Set the new constraints*/
             self.view.layoutIfNeeded()
-        })
-        anim.addCompletion{_ in
-            onComplete()
-        }
-        anim.startAnimation()
+        }, onComplete:onComplete)
     }
 }
 

@@ -13,7 +13,6 @@ extension VC{
             cityAndColor.append((color:VC.colors[i],city:City.cities[i]))
         }
         return cityAndColor
-        
     }
     /**
      * Current view
@@ -24,7 +23,6 @@ extension VC{
         setCenterConstraints(view)
         return view
     }
-    
     /**
      * Creates left view
      */
@@ -33,7 +31,6 @@ extension VC{
         setLeftConstraints(view)
         return view
     }
-    
     /**
      * Creates right view
      */
@@ -48,7 +45,7 @@ extension VC{
      */
     private func createView(idx:Int) -> Page{
         Swift.print("idx:  \(idx) 🎉👌✅")
-        //        let color = ViewController.citiesAndColors[idx].color
+        //let color = ViewController.citiesAndColors[idx].color
         let view = Page(idx:idx/*,color:color*/)
         self.view.addSubview(view)
         let coordinate = VC.citiesAndColors[idx].city.coordinate
@@ -63,14 +60,13 @@ extension VC{
     func createFooter() -> Footer{
         let footer = Footer()
         self.view.addSubview(footer)
-        _ = {//constraints
-            footer.translatesAutoresizingMaskIntoConstraints = false//(this enables you to set your own constraints)
+        footer.activateConstraint{ view in /*constraints*/
             let anchor = Constraint.anchor(footer, to: self.view, align: .bottomCenter, alignTo: .bottomCenter)
             let screenSize = UIScreen.main.bounds.size
             let size = Constraint.size(footer, size: CGSize(width:screenSize.width,height:Footer.footerHeight))
-            NSLayoutConstraint.activate([anchor.x,anchor.y,size.w,size.h])
-        }()
-        footer.updateWeather(idx: self.curIdx)//init
+            return [anchor.x,anchor.y,size.w,size.h]
+        }
+        footer.updateWeather(idx: self.curIdx)/*init*/
         return footer
     }
 }

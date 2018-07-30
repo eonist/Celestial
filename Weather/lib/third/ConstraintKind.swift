@@ -38,11 +38,12 @@ extension ConstraintKind where Self:UIView{
  * Animation (Static & convenient)
  */
 extension UIView{
-    typealias AnimComplete = ()-> Void
-    typealias AnimUpdate = ()-> Void
+    typealias AnimComplete = () -> Void
+    typealias AnimUpdate = () -> Void
     static func defaultOnComplete() {Swift.print("default anim completed closure")}
     /**
      * Animate
+     * Example:
      */
     static func animate(_ onUpdate:@escaping AnimUpdate,onComplete:@escaping AnimComplete = UIView.defaultOnComplete){
         let anim = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
