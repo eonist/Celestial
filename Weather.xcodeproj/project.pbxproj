@@ -11,7 +11,7 @@
 		F10D5793210C78B5000EEA2B /* VC+Gesture+Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5792210C78B5000EEA2B /* VC+Gesture+Handler.swift */; };
 		F10D5795210C790F000EEA2B /* VC+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5794210C790F000EEA2B /* VC+Create.swift */; };
 		F10D5797210C7BA7000EEA2B /* VC+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5796210C7BA7000EEA2B /* VC+Constraint.swift */; };
-		F10D5799210C9CA5000EEA2B /* Page+Extension+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5798210C9CA5000EEA2B /* Page+Extension+Create.swift */; };
+		F10D5799210C9CA5000EEA2B /* Page+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5798210C9CA5000EEA2B /* Page+Create.swift */; };
 		F10D579B210C9CE3000EEA2B /* Card+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D579A210C9CE3000EEA2B /* Card+Extension.swift */; };
 		F10D579D210DBA6B000EEA2B /* DayView+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D579C210DBA6B000EEA2B /* DayView+Create.swift */; };
 		F10D57A0210DFBF8000EEA2B /* Footer+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D579F210DFBF8000EEA2B /* Footer+Update.swift */; };
@@ -36,7 +36,7 @@
 		F19724A020AB7C1000637398 /* DayView+Accessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197248C20AB7C0F00637398 /* DayView+Accessor.swift */; };
 		F19724A120AB7C1000637398 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197248D20AB7C0F00637398 /* DayView.swift */; };
 		F19724A220AB7C1000637398 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197248F20AB7C0F00637398 /* Page.swift */; };
-		F19724A320AB7C1000637398 /* Page+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249020AB7C0F00637398 /* Page+Extension.swift */; };
+		F19724A320AB7C1000637398 /* Page+Accessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249020AB7C0F00637398 /* Page+Accessor.swift */; };
 		F19724A420AB7C1000637398 /* VC+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249120AB7C0F00637398 /* VC+Animate.swift */; };
 		F19724A520AB7C1000637398 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197249220AB7C0F00637398 /* VC.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +46,7 @@
 		F10D5792210C78B5000EEA2B /* VC+Gesture+Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Gesture+Handler.swift"; sourceTree = "<group>"; };
 		F10D5794210C790F000EEA2B /* VC+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Create.swift"; sourceTree = "<group>"; };
 		F10D5796210C7BA7000EEA2B /* VC+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Constraint.swift"; sourceTree = "<group>"; };
-		F10D5798210C9CA5000EEA2B /* Page+Extension+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+Extension+Create.swift"; sourceTree = "<group>"; };
+		F10D5798210C9CA5000EEA2B /* Page+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+Create.swift"; sourceTree = "<group>"; };
 		F10D579A210C9CE3000EEA2B /* Card+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Extension.swift"; sourceTree = "<group>"; };
 		F10D579C210DBA6B000EEA2B /* DayView+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayView+Create.swift"; sourceTree = "<group>"; };
 		F10D579F210DFBF8000EEA2B /* Footer+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Footer+Update.swift"; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		F197248C20AB7C0F00637398 /* DayView+Accessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DayView+Accessor.swift"; sourceTree = "<group>"; };
 		F197248D20AB7C0F00637398 /* DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		F197248F20AB7C0F00637398 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
-		F197249020AB7C0F00637398 /* Page+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page+Extension.swift"; sourceTree = "<group>"; };
+		F197249020AB7C0F00637398 /* Page+Accessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page+Accessor.swift"; sourceTree = "<group>"; };
 		F197249120AB7C0F00637398 /* VC+Animate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VC+Animate.swift"; sourceTree = "<group>"; };
 		F197249220AB7C0F00637398 /* VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,9 +92,9 @@
 		F10D579E210DFBE1000EEA2B /* dayview */ = {
 			isa = PBXGroup;
 			children = (
+				F197248D20AB7C0F00637398 /* DayView.swift */,
 				F197248C20AB7C0F00637398 /* DayView+Accessor.swift */,
 				F10D579C210DBA6B000EEA2B /* DayView+Create.swift */,
-				F197248D20AB7C0F00637398 /* DayView.swift */,
 			);
 			path = dayview;
 			sourceTree = "<group>";
@@ -210,8 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				F197248F20AB7C0F00637398 /* Page.swift */,
-				F197249020AB7C0F00637398 /* Page+Extension.swift */,
-				F10D5798210C9CA5000EEA2B /* Page+Extension+Create.swift */,
+				F197249020AB7C0F00637398 /* Page+Accessor.swift */,
+				F10D5798210C9CA5000EEA2B /* Page+Create.swift */,
 				F10D57A5210E0E8A000EEA2B /* card */,
 			);
 			path = page;
@@ -294,7 +294,7 @@
 				F19724A520AB7C1000637398 /* VC.swift in Sources */,
 				F197249E20AB7C1000637398 /* WeatherService.swift in Sources */,
 				F197249920AB7C1000637398 /* Extensions.swift in Sources */,
-				F19724A320AB7C1000637398 /* Page+Extension.swift in Sources */,
+				F19724A320AB7C1000637398 /* Page+Accessor.swift in Sources */,
 				F10D57AB210EE79A000EEA2B /* VC+Model.swift in Sources */,
 				F197249720AB7C1000637398 /* LocManager.swift in Sources */,
 				F1095E3820AE176A005DBE07 /* Card.swift in Sources */,
@@ -313,7 +313,7 @@
 				F19724A020AB7C1000637398 /* DayView+Accessor.swift in Sources */,
 				F10D579B210C9CE3000EEA2B /* Card+Extension.swift in Sources */,
 				F19724A420AB7C1000637398 /* VC+Animate.swift in Sources */,
-				F10D5799210C9CA5000EEA2B /* Page+Extension+Create.swift in Sources */,
+				F10D5799210C9CA5000EEA2B /* Page+Create.swift in Sources */,
 				F197249620AB7C1000637398 /* WeatherXMLParser.swift in Sources */,
 				F10D5793210C78B5000EEA2B /* VC+Gesture+Handler.swift in Sources */,
 				F197249B20AB7C1000637398 /* MiscUtils.swift in Sources */,

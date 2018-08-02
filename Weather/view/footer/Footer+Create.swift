@@ -8,16 +8,15 @@ extension Footer{
      * Creates Day views
      */
     func createDayViews() -> [DayView]{
-        let boxW:CGFloat = UIScreen.main.bounds.size.width / 5//75p on iphone 8
+        let boxW:CGFloat = UIScreen.main.bounds.size.width / 5 /*75p on iphone 8*/
         let dayViews:[DayView] = Footer.dayNames.map{ day in
             let dayView = DayView.init(day:day)
             self.addArrangedSubview(dayView)
-            _ = {//constraints
-                dayView.translatesAutoresizingMaskIntoConstraints = false//(this enables you to set your own constraints)
+            dayView.activateConstraint{ view in /*constraints*/
                 let size = Constraint.size(dayView, size: CGSize(width:boxW,height:Footer.footerHeight))
-                NSLayoutConstraint.activate([size.w,size.h])
-            }()
-            return dayView//all vertically centered, 30p height each
+                return [size.w,size.h]
+            }
+            return dayView/*all vertically centered, 30p height each*/
         }
         return dayViews
     }

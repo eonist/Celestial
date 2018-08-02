@@ -11,7 +11,7 @@ class Page:UIView,ConstraintKind{
     var idx:Int
     init(idx:Int) {
         self.idx = idx
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
         self.backgroundColor = .white//ViewController.citiesAndColors[idx].color
         _ = header
         _ = card

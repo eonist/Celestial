@@ -12,11 +12,11 @@ class Footer:UIStackView{
         let bg = UIView()
         bg.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        bg.backgroundColor = .red
-        self.addSubview(bg)
-        self.axis  = .horizontal
+        self.addSubview(bg)/*Add a background to*/  
+        self.axis = .horizontal/*arrange subViews horizontally*/
         self.distribution  = .equalSpacing
         self.alignment = .center
-        self.spacing = 0
+        self.spacing = 0/*zero gaps between view*/
         _ = dayViews
     }
     required init(coder: NSCoder) {

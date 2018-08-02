@@ -7,10 +7,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Swift.print("Hello world")
-        self.window = {
+        Swift.print("Hello world 🤯")
+        self.window = {/*We set a custom window*/
             let window = UIWindow(frame: UIScreen.main.bounds)
-            window.rootViewController = VC()
+            window.rootViewController = VC()/*We set the VC as rootVC*/
             window.makeKeyAndVisible()//since we have no Main storyboard
             return window
         }()

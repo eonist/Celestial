@@ -5,6 +5,7 @@ import UIKit
 extension VC{
     /**
      * Set center constraints
+     * TODO: ⚠️️ use the new activateConstraintKind
      */
     func setCenterConstraints<T:UIView>(_ page:T) where T:ConstraintKind {
         let screenSize:CGSize = {
