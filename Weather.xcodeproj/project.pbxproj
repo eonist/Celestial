@@ -19,6 +19,11 @@
 		F10D57A4210DFF0B000EEA2B /* ConstraintKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D57A3210DFF0B000EEA2B /* ConstraintKind.swift */; };
 		F10D57AB210EE79A000EEA2B /* VC+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D57AA210EE79A000EEA2B /* VC+Model.swift */; };
 		F1114E602137EA22006C99BB /* Loc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114E5F2137EA22006C99BB /* Loc.swift */; };
+		F1114E622137EE7B006C99BB /* Loc+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114E612137EE7B006C99BB /* Loc+Extension.swift */; };
+		F1114E6621383BE5006C99BB /* LocManager+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114E6521383BE5006C99BB /* LocManager+Core.swift */; };
+		F1114E6821383C27006C99BB /* LocManager+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114E6721383C27006C99BB /* LocManager+Delegate.swift */; };
+		F1114E6A21384135006C99BB /* LocManager+CallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114E6921384135006C99BB /* LocManager+CallBack.swift */; };
+		F1114E6C21384155006C99BB /* LocManager+Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114E6B21384155006C99BB /* LocManager+Variable.swift */; };
 		F116EBB8210F2DBE0091439E /* VC+Gesture+Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F116EBB7210F2DBE0091439E /* VC+Gesture+Cases.swift */; };
 		F197246F20AB7BB900637398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F197246E20AB7BB900637398 /* Assets.xcassets */; };
 		F197247220AB7BB900637398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F197247020AB7BB900637398 /* LaunchScreen.storyboard */; };
@@ -55,6 +60,11 @@
 		F10D57A3210DFF0B000EEA2B /* ConstraintKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintKind.swift; sourceTree = "<group>"; };
 		F10D57AA210EE79A000EEA2B /* VC+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Model.swift"; sourceTree = "<group>"; };
 		F1114E5F2137EA22006C99BB /* Loc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loc.swift; sourceTree = "<group>"; };
+		F1114E612137EE7B006C99BB /* Loc+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loc+Extension.swift"; sourceTree = "<group>"; };
+		F1114E6521383BE5006C99BB /* LocManager+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocManager+Core.swift"; sourceTree = "<group>"; };
+		F1114E6721383C27006C99BB /* LocManager+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocManager+Delegate.swift"; sourceTree = "<group>"; };
+		F1114E6921384135006C99BB /* LocManager+CallBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocManager+CallBack.swift"; sourceTree = "<group>"; };
+		F1114E6B21384155006C99BB /* LocManager+Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocManager+Variable.swift"; sourceTree = "<group>"; };
 		F116EBB7210F2DBE0091439E /* VC+Gesture+Cases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Gesture+Cases.swift"; sourceTree = "<group>"; };
 		F197246420AB7BB700637398 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F197246E20AB7BB900637398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,9 +123,31 @@
 		F1114E5E2137EA12006C99BB /* location */ = {
 			isa = PBXGroup;
 			children = (
-				F1114E5F2137EA22006C99BB /* Loc.swift */,
+				F1114E6421383BD0006C99BB /* manager */,
+				F1114E632137EED9006C99BB /* loc */,
 			);
 			path = location;
+			sourceTree = "<group>";
+		};
+		F1114E632137EED9006C99BB /* loc */ = {
+			isa = PBXGroup;
+			children = (
+				F1114E612137EE7B006C99BB /* Loc+Extension.swift */,
+				F1114E5F2137EA22006C99BB /* Loc.swift */,
+			);
+			path = loc;
+			sourceTree = "<group>";
+		};
+		F1114E6421383BD0006C99BB /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				F197247E20AB7C0F00637398 /* LocManager.swift */,
+				F1114E6521383BE5006C99BB /* LocManager+Core.swift */,
+				F1114E6B21384155006C99BB /* LocManager+Variable.swift */,
+				F1114E6721383C27006C99BB /* LocManager+Delegate.swift */,
+				F1114E6921384135006C99BB /* LocManager+CallBack.swift */,
+			);
+			path = manager;
 			sourceTree = "<group>";
 		};
 		F197245B20AB7BB700637398 = {
@@ -152,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				F197247D20AB7C0F00637398 /* WeatherXMLParser.swift */,
-				F197247E20AB7C0F00637398 /* LocManager.swift */,
 				F1114E5E2137EA12006C99BB /* location */,
 				F197247F20AB7C0F00637398 /* third */,
 				F197248520AB7C0F00637398 /* model */,
@@ -299,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1114E6621383BE5006C99BB /* LocManager+Core.swift in Sources */,
 				F197249C20AB7C1000637398 /* Constraint.swift in Sources */,
 				F1114E602137EA22006C99BB /* Loc.swift in Sources */,
 				F10D57A2210DFC43000EEA2B /* Footer+Create.swift in Sources */,
@@ -308,6 +340,7 @@
 				F197249920AB7C1000637398 /* Extensions.swift in Sources */,
 				F19724A320AB7C1000637398 /* Page+Accessor.swift in Sources */,
 				F10D57AB210EE79A000EEA2B /* VC+Model.swift in Sources */,
+				F1114E6C21384155006C99BB /* LocManager+Variable.swift in Sources */,
 				F197249720AB7C1000637398 /* LocManager.swift in Sources */,
 				F1095E3820AE176A005DBE07 /* Card.swift in Sources */,
 				F197249D20AB7C1000637398 /* WeatherModel.swift in Sources */,
@@ -319,6 +352,7 @@
 				F116EBB8210F2DBE0091439E /* VC+Gesture+Cases.swift in Sources */,
 				F10D57A0210DFBF8000EEA2B /* Footer+Update.swift in Sources */,
 				F10D5797210C7BA7000EEA2B /* VC+Constraint.swift in Sources */,
+				F1114E622137EE7B006C99BB /* Loc+Extension.swift in Sources */,
 				F197249A20AB7C1000637398 /* SimpleTimer.swift in Sources */,
 				F10D5795210C790F000EEA2B /* VC+Create.swift in Sources */,
 				F10D579D210DBA6B000EEA2B /* DayView+Create.swift in Sources */,
@@ -328,8 +362,10 @@
 				F10D5799210C9CA5000EEA2B /* Page+Create.swift in Sources */,
 				F197249620AB7C1000637398 /* WeatherXMLParser.swift in Sources */,
 				F10D5793210C78B5000EEA2B /* VC+Gesture+Handler.swift in Sources */,
+				F1114E6821383C27006C99BB /* LocManager+Delegate.swift in Sources */,
 				F197249B20AB7C1000637398 /* MiscUtils.swift in Sources */,
 				F19724A220AB7C1000637398 /* Page.swift in Sources */,
+				F1114E6A21384135006C99BB /* LocManager+CallBack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

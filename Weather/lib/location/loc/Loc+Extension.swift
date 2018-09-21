@@ -2,20 +2,17 @@ import Foundation
 import CoreLocation
 
 /**
- * NOTE: Lat,Long, for Oslo:  //59.9139° N, 10.7522° E
+ * Extension for Loc
  */
-struct Loc{
-    let lat:Double
-    let long:Double
-}
 extension Loc{
     /**
-     * Fetches Name of Place and Country
+     * Fetches Name of Place and Country (ASYNC)
+     * Example: country: Norway, locality Akershus
      */
     func locality(onComplete:@escaping (_ locality:String)->Void) {
         let userLocation:CLLocation = CLLocation.init(latitude: lat, longitude: long)
-        Swift.print("user latitude = \(userLocation.coordinate.latitude)")
-        Swift.print("user longitude = \(userLocation.coordinate.longitude)")
+        //        Swift.print("user latitude = \(userLocation.coordinate.latitude)")
+        //        Swift.print("user longitude = \(userLocation.coordinate.longitude)")
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if error != nil{
@@ -25,8 +22,8 @@ extension Loc{
                 let firstPlacemark:CLPlacemark = Optional(placemarksUnwrapped[0]),
                 let locality:String = firstPlacemark.locality,
                 let country:String = firstPlacemark.country {
-                    let localityStr:String = "\(locality), \(country)" // \(placemark.administrativeArea!),
-                    onComplete(localityStr)
+                let localityStr:String = "\(locality), \(country)" // \(placemark.administrativeArea!),
+                onComplete(localityStr)
             }else {
                 onComplete("unknown location")
             }
