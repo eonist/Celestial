@@ -30,8 +30,6 @@ extension VC{
         page.setAndActivateConstraint{ view in
             let size = Constraint.size(page, size: screenSize)
             let anchor = Constraint.anchor(page, to: self.curView, align: .topRight, alignTo: .topLeft)
-//            page.size = size
-//            page.anchor = pos
             return (anchor, size)
         }
     }

@@ -29,7 +29,7 @@ extension VC{
         let screenRect = UIScreen.main.bounds
         var leftBoundry:CGFloat {return screenRect.origin.x - screenRect.size.width/4 }
         var rightBoundry:CGFloat {return screenRect.size.width + screenRect.size.width / 4 }
-        self.view.isUserInteractionEnabled = false/*disable userinteractions*/
+        self.view.isUserInteractionEnabled = false/*disable userinteractions, while animation is playing*/
         if curView.frame.origin.x < leftBoundry {/*more 25% to the left*/
             beyondLeft()
         }else if (curView.frame.origin.x + curView.frame.width) > rightBoundry {/*more than 25% to the right*/
@@ -37,28 +37,24 @@ extension VC{
         }else {/*released within boundries*/
             withinBoundry()
         }
-        self.view.layoutIfNeeded()
+        self.view.layoutIfNeeded()/*visual update*/
     }
     /**
      * When user drags a tap across the screen
      */
-    @objc func handlePan(recognizer:UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: self.view)
-//        Swift.print("translation:  \(translation)")
-        let xConstraint:NSLayoutConstraint = {
-            guard let posConstraint = curView.anchor else {fatalError("err posConstraint not available")}
-            let x = posConstraint.x.constant + translation.x
-            NSLayoutConstraint.deactivate([posConstraint.x])
-            return Constraint.anchor(curView, to: self.view, align: .left, alignTo: .left, offset: x)
-        }()
-        NSLayoutConstraint.activate([xConstraint/*,pos.y*/])
-        curView.anchor?.x = xConstraint
-        self.view.layoutIfNeeded()/*visual update*/
-        /**/
-        recognizer.setTranslation(.zero, in: self.view)/*reset recognizer*/
-        if [.ended,.cancelled,.failed].contains(recognizer.state)   {
-            onTapRelease()/*call tapRelease*/
-        }
-    }
+   @objc func handlePan(recognizer:UIPanGestureRecognizer) {
+      let translation = recognizer.translation(in: self.view)
+      //Swift.print("translation:  \(translation)")
+      guard let posConstraint = curView.anchor else {fatalError("err posConstraint not available")}
+      let x = posConstraint.x.constant + translation.x
+      curView.update(offset: x, align: .left, alignTo: .left)
+      /**/
+      recognizer.setTranslation(.zero, in: self.view)/*reset recognizer*/
+      if [.ended,.cancelled,.failed].contains(recognizer.state)   {
+         onTapRelease()/*call tapRelease*/
+      }
+   }
 }
+
+
 
