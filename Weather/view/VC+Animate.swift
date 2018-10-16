@@ -10,15 +10,15 @@ extension VC{
      */
     func animate(to:CGFloat, onComplete:@escaping () -> Void){
         let newConstraintClosure = {/*Animate to this*/
-            guard let anchor = self.curView.anchor else {fatalError("err anchor not available")}
-            NSLayoutConstraint.deactivate([anchor.x])/*Deactivate the current active constraint*/
+            guard let curAnchor = self.curView.anchor else {fatalError("err anchor not available")}
+            NSLayoutConstraint.deactivate([curAnchor.x])/*Deactivate the current active constraint*/
             let xConstraint = Constraint.anchor(self.curView, to: self.view, align: .left, alignTo: .left, offset: to)
-            NSLayoutConstraint.activate([xConstraint/*,pos.y*/])
-            self.curView.anchor?.x = xConstraint
+            NSLayoutConstraint.activate([xConstraint/*,pos.y*/])/*Activate the new constraint*/
+            self.curView.anchor?.x = xConstraint/*Store the new constraint*/
         }
-        UIView.animate({/*animate*/
+        UIView.animate({/*Animate*/
             newConstraintClosure()/*Set the new constraints*/
-            self.view.layoutIfNeeded()
+            self.view.layoutIfNeeded()/*Tells Apples Internals to get moving*/
         }, onComplete:onComplete)
     }
 }
