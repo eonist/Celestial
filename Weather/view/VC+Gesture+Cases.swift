@@ -3,10 +3,11 @@ import UIKit
  * Cases
  */
 extension VC{
-    /**
-     * Handle paning beyond the left boundry
-     * NOTE: basically swipe right to left, where the left side page disapears
-     */
+   /**
+    * Handle paning beyond the left boundry
+    * NOTE: basically swipe right to left, where the left side page disapears
+    * NOTE: Moves cards from right to left
+    */
     func beyondLeft(){
         Swift.print("outside left boundry")
         let screenRect = UIScreen.main.bounds
@@ -17,12 +18,12 @@ extension VC{
             self.leftView.removeFromSuperview()/*leftView is now removed as its completly sight*/
             /**/
             self.leftView = self.curView /*curView now becomes leftView*/
-            if let anchor = self.leftView.anchor, let size = self.leftView.size {
-                NSLayoutConstraint.deactivate([anchor.x,anchor.y,size.w,size.h])
+            if let anchor = self.leftView.anchor/*, let size = self.leftView.size*/ {
+                NSLayoutConstraint.deactivate([anchor.x,anchor.y])
             }
             self.curView = self.rightView/*rightView now becomes curView */
-            if let anchor = self.curView.anchor, let size = self.curView.size {
-                NSLayoutConstraint.deactivate([anchor.x,anchor.y,size.w,size.h])
+            if let anchor = self.curView.anchor/*, let size = self.curView.size */{
+                NSLayoutConstraint.deactivate([anchor.x,anchor.y])
             }
             self.setCenterConstraints(self.curView)/*set final constraint*/
             self.setLeftConstraints(self.leftView)/*set final constraint*/
@@ -37,6 +38,7 @@ extension VC{
     /**
      * Handle paning beyond the right boundry
      * Basically swipe from left to right
+     * NOTE: Moves cards from left to right
      */
     func beyondRight(){
         Swift.print("outside right boundry")
@@ -48,12 +50,12 @@ extension VC{
             self.rightView.removeFromSuperview()
             /**/
             self.rightView = self.curView/*the prev page is now cur page*/
-            if let anchor = self.rightView.anchor, let size = self.rightView.size {
-                NSLayoutConstraint.deactivate([anchor.x,anchor.y,size.w,size.h])
+            if let anchor = self.rightView.anchor/*, let size = self.rightView.size*/ {
+                NSLayoutConstraint.deactivate([anchor.x,anchor.y])
             }
             self.curView = self.leftView
-            if let anchor = self.curView.anchor, let size = self.curView.size {
-                NSLayoutConstraint.deactivate([anchor.x,anchor.y,size.w,size.h])
+            if let anchor = self.curView.anchor/*, let size = self.curView.size*/ {
+                NSLayoutConstraint.deactivate([anchor.x,anchor.y])
             }
             self.setCenterConstraints(self.curView)/*set final constraint*/
             self.setRightConstraints(self.rightView)/*set final constraint*/
