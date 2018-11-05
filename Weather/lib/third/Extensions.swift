@@ -3,12 +3,12 @@ import UIKit
  * Generic utility extensions
  */
 extension Date{
-    
+
     var day:Int {return Calendar.current.component(.day, from:self)}
     var month:Int {return Calendar.current.component(.month, from:self)}
     var year:Int {return Calendar.current.component(.year, from:self)}
     var hour:Int {return Calendar.current.component(.hour, from:self)}
-    
+
     static func assertHour(_ a:Date,with b:Date) -> Bool{
         //        Swift.print("a.year:  \(a.year)")
         //        Swift.print("b.year:  \(b.year)")
@@ -75,7 +75,7 @@ extension Date{
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: self)
     }
-    
+
 }
 extension String {
     /**
@@ -94,7 +94,7 @@ extension String {
         let retVal = str[start..<end]//swift 4 upgrade, was: return str.substring(with:range)
         return String(retVal)
     }
-    
+
 }
 
 extension Array {
@@ -140,4 +140,91 @@ extension URL{
             completion(data, response, error)
             }.resume()
     }
+}
+
+// let π = CGFloat(Double.pi)/*Global variable*/
+// class TrigParser {
+//     /**
+//      * Returns an angle in radian between -3.14 and 3.14 (-180 and 180 converted to degress)
+//      * PARAM: a is the pivot point
+//      * PARAM: b is the polar point
+//      * NOTE: use this formula to find the angle in a (0,0) point-space Math.atan2(pointB.y, pointB.x)
+//      * NOTE: formula in standard form: Tan Ɵ = y/x (then use inverse tan to find the angle)
+//      */
+//     static func angle(_ a:CGPoint, _ b:CGPoint)->CGFloat {
+//         return atan2(b.y - a.y, b.x - a.x)
+//     }
+//     /**
+//     * Returns a radian to be between 0 and Math.PI*2 Radian (0 - 6.28)
+//     * PARAM: theta: An radian in degrees typically 0 - Math.PI*2
+//     * NOTE: we use "while" function type here because angle could be very low at which point Math.PI*2 needs to be contrinuasly added until its above 0 )
+//     * TODO: ⚠️️ Use modulo like normalize2 does, is that faster ? do an optimization test.
+//     */
+//   static func normalize(_ angle:CGFloat)->CGFloat {
+//       var angle = angle
+//       while angle < 0 {angle += π*2}
+//       while angle >= π*2 {angle -= π*2}
+//       return angle
+//   }
+// }
+class DirDetecor{
+   // static var t:(CGFloat, CGFloat) = (-π/4,-π*0.75)
+   // static var b:(CGFloat, CGFloat) = (π/4,π*0.75)
+   // static var l:(CGFloat, CGFloat) = (TrigParser.normalize(π*0.75), TrigParser.normalize(-π*0.75))/*remember to normalize the angle to test against this value to be between 0 - PI*2*/
+   // static var r:(CGFloat, CGFloat) = (-π/4, π/4)
+   enum Dir{
+      case hor, ver, none
+   }
+   //use trig from press to drag.dist >= 64 to activate, actually drag.dist.x > 54 or .y > 54
+   static func dir(p1:CGPoint,p2:CGPoint) -> Dir {
+      let xDist = abs(p2.x - p1.x)
+      let yDist = abs(p2.y - p1.y)
+      if xDist > yDist {
+         return .hor
+      }else if xDist < yDist {
+         return .ver
+      }else{
+         return .none
+      }
+      // let angle:cgFloat = TrigParser.angle(prevMovePt,touchPt)
+      // if (angel >= t.0 || angel <= t.1) || (angel >= b.0 || angel <= b.1){
+      //    return .ver
+      // } else // (angel >= l.0 || angel <= l.1) || (angel >= r.0 || angel <= r.1) {
+      //    return .hor
+      // }
+   }
+}
+// class CGPointParser{
+//    /**
+//     * A method to check distance between two points
+//     * Ref: https://en.wikipedia.org/wiki/Pythagorean_theorem
+//     */
+//    static func dist(a: CGPoint, b: CGPoint) -> CGFloat {
+//       let xDist = a.x - b.x
+//       let yDist = a.y - b.y
+//       return CGFloat(sqrt(xDist * xDist + yDist * yDist))
+//    }
+// }
+
+
+import UIKit.UIColor
+
+extension UIColor {
+   /**
+    * EXAMPLE: let color = UIColor(hex: "ff0000")
+    */
+   convenience init(hex: String) {
+      let scanner = Scanner(string: hex)
+      scanner.scanLocation = 0
+      var rgbValue: UInt64 = 0
+      scanner.scanHexInt64(&rgbValue)
+      let r = (rgbValue & 0xff0000) >> 16
+      let g = (rgbValue & 0xff00) >> 8
+      let b = rgbValue & 0xff
+      self.init(
+         red: CGFloat(r) / 0xff,
+         green: CGFloat(g) / 0xff,
+         blue: CGFloat(b) / 0xff, alpha: 1
+      )
+   }
 }

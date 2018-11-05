@@ -103,7 +103,7 @@ extension MetWeatherService{
     private func weather(loc:Loc) -> WeatherXMLParser{
         let parser = WeatherXMLParser()
         let url = URLS.YR_LOCATION_FORECAST + "/?lat=\(loc.lat)&lon=\(loc.long)"
-        parser.initiate(url:url)
+        parser.initiate(url:url)//calls external Service
         Swift.print("parser.forcasts.count:  \(parser.forcasts.count)")
         
 //        

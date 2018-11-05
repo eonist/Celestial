@@ -1,4 +1,5 @@
 import UIKit
+import Spatial
 /**
  * Create
  */
@@ -41,8 +42,8 @@ extension Page{
     /**
      * Center content
      */
-    func createCard() -> Card{
-        let view = Card()
+    func createCard() -> WeatherCard{
+        let view = WeatherCard()
         //view.backgroundColor = .white
         addSubview(view)
         view.activateConstraint{ view in/*constraints*/

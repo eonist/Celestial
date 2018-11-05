@@ -1,0 +1,11 @@
+framework module Carousel {
+  umbrella header "Carousel.h"
+
+  export *
+  module * { export * }
+}
+
+module Carousel.Swift {
+    header "Carousel-Swift.h"
+    requires objc
+}

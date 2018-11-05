@@ -1,0 +1,9 @@
+{
+  "commitish" : "603cd17dc97def3b95b7e49f6ce85b48f72e5128",
+  "iOS" : [
+    {
+      "name" : "Carousel",
+      "hash" : "879298063eed81d2d148cb618803f53a41eb4023439760a0f77c6a2fe85e6fde"
+    }
+  ]
+}

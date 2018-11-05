@@ -1,8 +1,9 @@
 import UIKit
+import Spatial
 
 class Page:UIView,ConstraintKind{
     lazy var header:UIView = createHeader()
-    lazy var card:Card = createCard()
+    lazy var card:WeatherCard = createCard()
     /**
      * Stores the constraints, for easy activating and deactivating
      */
@@ -23,7 +24,3 @@ class Page:UIView,ConstraintKind{
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-
-
-

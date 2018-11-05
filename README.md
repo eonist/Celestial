@@ -10,4 +10,5 @@
 - Constraint animation
 
 ### TODO
-Cards color match their habitat. Sao paulo -> warm yellow, orange etc.  London -> blue etc. NYC -> Brick red etc 
+- Cards color match their habitat. Sao paulo -> warm yellow, orange etc.  London -> blue etc. NYC -> Brick red etc
+- rename app to TheWeather, or , A delightful weather app

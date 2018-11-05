@@ -1,5 +1,5 @@
 import UIKit
-
+import Spatial
 /**
  * Create
  */
@@ -47,13 +47,13 @@ extension VC{
     /**
      * Creates footer
      */
-    func createFooter() -> Footer{
-        let footer = Footer()
+    func createFooter() -> BottomBar{
+        let footer = BottomBar()
         self.view.addSubview(footer)
         footer.activateConstraint{ view in /*constraints*/
             let anchor = Constraint.anchor(footer, to: self.view, align: .bottomCenter, alignTo: .bottomCenter)/*Its strange that this works, since pages are added to view, and view should be full-screen*/
             let screenSize = UIScreen.main.bounds.size
-            let size = Constraint.size(footer, size: CGSize(width:screenSize.width,height:Footer.footerHeight))
+            let size = Constraint.size(footer, size: CGSize(width:screenSize.width,height:BottomBar.footerHeight))
             return [anchor.x,anchor.y,size.w,size.h]
         }
         footer.updateWeather(idx: self.curIdx)/*init*/
