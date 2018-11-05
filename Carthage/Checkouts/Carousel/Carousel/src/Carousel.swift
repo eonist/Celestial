@@ -34,7 +34,7 @@ open class Carousel<T:UIView,U>:UIView where T:CardKind{//⚠️️ cardView sho
    lazy var animator:CarouselAnimator = CarouselAnimator(duration:0.3)
    override public init(frame:CGRect){
 		super.init(frame:frame)
-      self.backgroundColor = .gray
+//      self.backgroundColor = .gray
       self.isUserInteractionEnabled = true
       _ = firstCard
       _ = lastCard
