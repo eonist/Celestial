@@ -38,7 +38,7 @@ extension HourView {
       label.text = "17:00"
       label.font = label.font.withSize(16)
       label.textAlignment = .center
-      label.backgroundColor = .darkGray
+//      label.backgroundColor = .darkGray
       label.textColor = .black//UIColor(hex:"EBCF4B")
       self.addSubview(label)
       return label
@@ -48,7 +48,7 @@ extension HourView {
     */
    func createWeatherIcon() -> UIImageView{//38
       let view = UIImageView()
-      view.backgroundColor = .purple
+//      view.backgroundColor = .purple
       self.addSubview(view)
       return view
    }
@@ -60,7 +60,7 @@ extension HourView {
       label.text = "5°C"
       label.font = UIFont.boldSystemFont(ofSize: 16)
       label.textAlignment = .center
-      label.backgroundColor = .white
+//      label.backgroundColor = .white
       label.textColor = .black//UIColor(hex:"EBCF4B")
       self.addSubview(label)
       return label
@@ -75,7 +75,7 @@ extension HourView {
       kindLabel.text = "Clear skies"
       kindLabel.font = kindLabel.font.withSize(16)
       kindLabel.textAlignment = .center
-      kindLabel.backgroundColor = .darkGray
+//      kindLabel.backgroundColor = .darkGray
       kindLabel.textColor = .black//UIColor(hex:"EBCF4B")
       self.addSubview(kindLabel)
       return kindLabel

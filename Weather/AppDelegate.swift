@@ -1,12 +1,24 @@
-
 import UIKit
 
+//find weather icons 👈
+   //convert to pdf
+//find api calls, and see if you have hours for the day/loc
+//Move Netski into production
+   //use network code from prev projects
+//load all weather data on init, and appBecomeActive
+   //the weatherData for the curIdx is put to the front of the que
+//the model is updated on: init,becomeActive,periodically, every 5min on a timer.
+   //reset a 5 min timer everytime the timer runsOut, or init, and continue timer on becomeActive
+//Figure out heavenly gradients (Sky gradients) HeavenlySky
+   //Location, Time, weather condition, time of year
+   //How does pastle animate gradients?
+   //Nice collection of gradients: https://github.com/itmeo/webgradients/blob/master/webgradients.css
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Swift.print("Hello world 🤯")
+//        Swift.print("Hello world 🤯")
         self.window = {/*We set a custom window*/
             let window = UIWindow(frame: UIScreen.main.bounds)
             window.rootViewController = ViewController()//VC()///*We set the VC as rootVC*/
@@ -18,25 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /**
      * Boilerplate
      */
-    func applicationWillResignActive(_ application: UIApplication) { }
+    func applicationWillResignActive(_ application: UIApplication) {}
     func applicationDidEnterBackground(_ application: UIApplication) {}
     func applicationWillEnterForeground(_ application: UIApplication) {}
     func applicationDidBecomeActive(_ application: UIApplication) {}
-    func applicationWillTerminate(_ application: UIApplication) { }
+    func applicationWillTerminate(_ application: UIApplication) {}
 }
-//🏀
-   //Make FirstCard and SecondCard, 👉 NowCard, TodayCard ✅
-
-   //just use the same tech as bottombar, then use your stack method later🚫
-   //code distrib tech ✅
-   //secondcard should have 5 different items with (Hour, weather img, weathertype, degree) 👈
-      //test in Spatial first. Add 4 UIViews with different colors, align: leftCenter, 32px ✅
-      //then Label,Img,Label,Label
-   //apply dummy data to secondcard at first
-   //topLeft alignment,
-   //Add setData() depending on .cardMode ✅
-   //set verticalCardMode in CardCarousel through callBack "onVerticalCardChange"
-   //add the real data to todayCard
-   //Add vector iconogrphy
-   //Add gradient backgrounds 👈
-
